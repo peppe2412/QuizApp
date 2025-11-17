@@ -40,6 +40,20 @@ namespace QuizApp
             //Rimuove sia gli spazi che le maiuscole
             string cleanAnswerLogic = answerAboutLogic.Trim().ToLower();
 
+            // Domanda culturale
+            string questionAboutCulture = "Che forma di governo ha l'Italia?";
+            string answerAboutCulture = "repubblica parlamentare";
+
+            // Rimuovere spazi e maiuscole
+            string cleanAnswerCulture = answerAboutCulture.Trim().ToLower();
+
+            //Domanda di storia
+            string questionAboutHistory = "Chi era una delle famiglie più influenti del Rinascimento?";
+            string answerAboutHistory = "Medici";
+
+            // Rimuovere spazi e maiuscole
+            string cleanAnwerAboutHistory = answerAboutHistory.Trim().ToLower();
+
 
             /* ---------------------------------------------------------- */
 
@@ -67,6 +81,10 @@ namespace QuizApp
                 Console.WriteLine($"Sbagliato! La risposta giusta è {answerAboutCapital}");
             }
 
+
+            /* ---------------------------------------------------------------------------- */
+
+
             // Risposta di logica matematica
             Console.WriteLine(questionAboutLogic);
 
@@ -83,15 +101,61 @@ namespace QuizApp
                 Console.WriteLine($"Sbagliato! La risposta giusta è {answerAboutLogic}");
             }
 
-            // Punteggio Finale
-            Console.WriteLine($"Quiz completato! Il tuo punteggio è di: {score}/2");
 
-            if (score == 2)
+            /* -------------------------------------------------------------------------- */
+
+
+            //Risposta Culturale
+            Console.WriteLine(questionAboutCulture);
+
+            // Risposta dell'utente
+            string userAnswerAboutCulture = Console.ReadLine().Trim().ToLower();
+
+            if(userAnswerAboutCulture == cleanAnswerCulture)
+            {
+                Console.WriteLine("Corretto");
+                score = score + 1;
+            }
+            else
+            {
+                Console.WriteLine($"Sbagliato! La risposta giusta è {answerAboutCulture}");
+            }
+
+            /* ---------------------------------------------------------------------------- */
+
+
+            // Risposta di storia
+            Console.WriteLine(questionAboutHistory);
+
+            // Risposta dell'utente
+            string userAnswerAboutHistory = Console.ReadLine().Trim().ToLower();
+
+            if(userAnswerAboutHistory == cleanAnwerAboutHistory)
+            {
+                Console.WriteLine("Corretto");
+                score = score + 1;
+            }
+            else
+            {
+                Console.WriteLine($"Sbagliato! La risposta giusta è {answerAboutHistory}");
+            }
+
+
+            /* --------------------------------------------------------------------------- */
+
+
+            // Punteggio Finale
+            Console.WriteLine($"Quiz completato! Il tuo punteggio è di: {score}/4");
+
+            if (score == 4)
             {
                 Console.WriteLine("Hai risposto giusto a tutte le domande");
+            } else if (score >= 2)
+            {
+                Console.WriteLine("Buono, puoi fare di meglio");
             } else if (score == 1)
             {
-                Console.WriteLine("Hai risposto giusto ad una sola domanda");
+                Console.WriteLine("Continua ad esercitarti");
             }
             else
             {
